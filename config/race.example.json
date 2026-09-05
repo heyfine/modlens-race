@@ -1,0 +1,22 @@
+{
+  "timeoutMs": 120000,
+  "staggerMs": 0,
+  "racers": [
+    {
+      "name": "示例：OpenAI 兼容独立端点（请替换为自己的 baseUrl/model/apiKey）",
+      "provider": "openai",
+      "model": "your-model-name",
+      "baseUrl": "https://your-api.example.com/v1",
+      "apiKey": "sk-YOUR-KEY-HERE"
+    },
+    {
+      "name": "示例：共享 modlens 配置（不写 baseUrl/apiKey，走 ~/.modlens/config.json）",
+      "provider": "openai",
+      "model": "your-shared-model"
+    },
+    {
+      "name": "示例：gemini-api（key 配在 ~/.modlens/config.json 或 DSH 凭证）",
+      "provider": "gemini-api"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "modles-race",
+  "version": "0.1.0",
+  "description": "vision_race：多模型同时看图，谁先成功用谁 —— DSH 视觉模型竞速执行器 + 设置卡片插件",
+  "type": "module",
+  "bin": {
+    "vision-race": "./src/cli.ts"
+  },
+  "files": ["src", "dsh", "config"],
+  "scripts": {
+    "dev": "node src/cli.ts",
+    "race": "node src/cli.ts",
+    "build": "vite build --emptyOutDir",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "install:dsh": "node scripts/install-to-dsh.mjs"
+  },
+  "dependencies": {
+    "@liustack/modlens": "3.17.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.0",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.8.0",
+    "vite": "^6.0.0",
+    "vitest": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

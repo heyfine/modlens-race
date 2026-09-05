@@ -1,0 +1,21 @@
+{
+  "name": "dsh-vision-picker",
+  "version": "0.1.0",
+  "description": "Settings card to pick a vision model from your DSH providers and wire it into modlens. Native HTML card (no ui-primitives dependency).",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [],
+      "platform": "web",
+      "immediately": true
+    }
+  }
+}

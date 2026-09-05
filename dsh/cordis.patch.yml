@@ -1,0 +1,4 @@
+# dsh bundle layer: mount the dsh-vision-picker plugin (host route + settings card).
+- insert:
+    - id: dsh-vision-picker
+      name: dsh-vision-picker
