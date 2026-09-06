@@ -16,7 +16,8 @@
     "format": "biome format --write .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "install:dsh": "node scripts/install-to-dsh.mjs"
+    "install:dsh": "node scripts/install-to-dsh.mjs",
+    "sync": "node scripts/sync-repos.mjs"
   },
   "dependencies": {
     "@liustack/modlens": "3.17.1"
