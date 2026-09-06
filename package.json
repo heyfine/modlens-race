@@ -1,5 +1,5 @@
 {
-  "name": "modles-race",
+  "name": "modlens-race",
   "version": "0.1.0",
   "description": "vision_race：多模型同时看图，谁先成功用谁 —— DSH 视觉模型竞速执行器 + 设置卡片插件",
   "type": "module",

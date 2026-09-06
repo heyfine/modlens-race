@@ -5,7 +5,7 @@
 ## 部署目标
 
 - 平台：本机（Windows）CLI + DSH Desktop 插件
-- 仓库：`github.com/heyfine/modles-race`（main）
+- 仓库：`github.com/heyfine/modlens-race`（main）
 - 环境：Node.js >= 24，pnpm
 
 ## 环境变量

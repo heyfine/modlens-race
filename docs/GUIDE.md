@@ -71,8 +71,8 @@ vision_race 的做法是**竞速**：把同一张图同时发给多个视觉模�
 
 ```bash
 # 克隆仓库
-git clone https://github.com/heyfine/modles-race.git
-cd modles-race
+git clone https://github.com/heyfine/modlens-race.git
+cd modlens-race
 
 # 安装依赖
 pnpm install
@@ -249,4 +249,4 @@ key 都集中在 `~/.modlens/config.json` → 共享模式（配置最简）。�
 
 ---
 
-*项目仓库：[github.com/heyfine/modles-race](https://github.com/heyfine/modles-race) · 问题与建议欢迎提 issue*
+*项目仓库：[github.com/heyfine/modlens-race](https://github.com/heyfine/modlens-race) · 问题与建议欢迎提 issue*
