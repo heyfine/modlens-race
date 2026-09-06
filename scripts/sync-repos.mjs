@@ -26,7 +26,7 @@ function gitAllowFail(...args) {
 
 function readInternalDocs() {
   const lines = readFileSync('.gitignore', 'utf8').split(/\r?\n/);
-  const start = lines.indexOf(INTERNAL_SECTION);
+  const start = lines.findIndex((line) => line.startsWith(INTERNAL_SECTION));
   if (start === -1) {
     throw new Error(`.gitignore 中找不到「${INTERNAL_SECTION}」区块，无法确定内部文档清单`);
   }
