@@ -66,7 +66,8 @@ function main() {
       git('commit', '-m', `同步内部文档快照 ${new Date().toISOString().slice(0, 10)}`);
     }
     console.log('[3/4] 推送 → private（私有仓库）');
-    git('push', 'private', `${SNAPSHOT_BRANCH}:${branch}`);
+    // 私有仓库是全量备份镜像：每次快照都基于公开 main 重建，与上次快照必然分叉，故用 --force
+    git('push', '--force', 'private', `${SNAPSHOT_BRANCH}:${branch}`);
   } finally {
     git('switch', branch);
     gitAllowFail('branch', '-D', SNAPSHOT_BRANCH);
