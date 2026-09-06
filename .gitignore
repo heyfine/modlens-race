@@ -8,3 +8,13 @@ race.json
 !config/race.example.json
 *.log
 .DS_Store
+# 内部开发文档（不公开）
+AGENTS.md
+docs/PROJECT_MEMORY.md
+docs/BUILD_LOG.md
+docs/DEV_NOTE.md
+docs/WIP.md
+docs/ROADMAP.md
+docs/TODO.md
+docs/PROJECT_TEMPLATE.md
+docs/模板使用说明.md
