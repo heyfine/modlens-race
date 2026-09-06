@@ -8,6 +8,8 @@ race.json
 !config/race.example.json
 *.log
 .DS_Store
+# 本地文稿（不进任何远程仓库）
+docs/promo-article.md
 # 内部开发文档（不公开）
 AGENTS.md
 docs/PROJECT_MEMORY.md
