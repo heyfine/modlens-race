@@ -2,6 +2,8 @@
 
 多模型竞速看图：**同一张图同时发给多个视觉模型，谁先成功返回用谁的结果，其余立刻杀掉**。解决单个视觉模型「看不了 / 限流 / 超时」拖慢整体的问题——一个模型挂了，竞速里总有别的能顶上。
 
+> 📖 **详细使用指南**（项目概况 / 安装 / 配置 / 全部用法）：[docs/GUIDE.md](docs/GUIDE.md)
+
 最初是 DSH（DeepSeek Harness）环境里的自用插件与脚本（多模型竞速执行器 + Vision Picker 设置卡片），现已整理为独立项目，可：
 
 - 独立命令行使用（`pnpm race <图片> ...`）
@@ -70,7 +72,7 @@ pnpm run install:dsh  # 安装插件/脚本回 DSH 环境
 ```
 
 - **安全**：`race.json` 含真实 API key，已被 `.gitignore` 忽略，**不要提交**。提交请用 `config/race.example.json`（key 占位）。
-- 完整说明见 [docs/ROADMAP.md](docs/ROADMAP.md) 与 [docs/PROJECT_MEMORY.md](docs/PROJECT_MEMORY.md)。
+- 配置项完整说明见 [docs/GUIDE.md](docs/GUIDE.md)。
 
 ## DSH 集成
 
@@ -103,11 +105,7 @@ test/
 docs/                  项目文档
 ```
 
-## AI 接手指南
-
-1. 先读 [AGENTS.md](AGENTS.md)（行为约定）→ [docs/WIP.md](docs/WIP.md)（当前进度）→ [docs/PROJECT_MEMORY.md](docs/PROJECT_MEMORY.md)（环境/架构/踩坑）
-2. 需要理解来龙去脉再读 [docs/BUILD_LOG.md](docs/BUILD_LOG.md)
-
 ## 更新规则
 
 - 项目名 / 简介 / 常用命令 / 目录结构 / 环境变量 / 部署地址发生变化时 → 同步更新本文件
+- 使用说明有增补 → 同步更新 [docs/GUIDE.md](docs/GUIDE.md)
