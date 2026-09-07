@@ -68,7 +68,12 @@ function main() {
     git(['update-index', '--add', '--remove', ...docs], env);
     const tree = git(['write-tree'], env);
     // 私有快照以私有仓库 main 为父提交（快照历史线性累积）；私有仓库为空时无父提交
-    const privateMain = git(['rev-parse', '--verify', '--quiet', `${PRIVATE_REMOTE}/main`]);
+    let privateMain = null;
+    try {
+      privateMain = git(['rev-parse', '--verify', '--quiet', `${PRIVATE_REMOTE}/main`]);
+    } catch {
+      // 私有仓库还没有 main（首次同步），快照将是根提交
+    }
     const parents = privateMain ? ['-p', privateMain] : [];
     const message = `全量快照 ${new Date().toISOString().slice(0, 10)}（基于 ${git(['rev-parse', '--short', 'HEAD'])}）`;
     const commit = git(['commit-tree', tree, ...parents, '-m', message], env);
