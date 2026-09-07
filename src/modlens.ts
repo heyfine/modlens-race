@@ -1,34 +1,26 @@
 /** modlens CLI 的定位与单 racer 执行（隔离 HOME / 共享模式）。 */
 import { spawn } from 'node:child_process'
-import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { homedir, tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { Racer } from './types.ts'
 
-/** 候选的 modlens CLI 路径（按优先级）：
+/** 候选的 modlens CLI 路径（按优先级，取第一个真实存在的）：
  *  1. 环境变量 MODLENS_CLI
  *  2. 本项目 node_modules 下的 @liustack/modlens/dist/main.js
  *  3. DSH 安装位置的 @liustack/modlens/dist/main.js
  */
 export function resolveModlensCli(env: NodeJS.ProcessEnv = process.env): string {
   if (env.MODLENS_CLI) return env.MODLENS_CLI
+  // import.meta.url 指向 src/ 或 dist/（构建产物），上跳一级即项目根
+  const here = dirname(fileURLToPath(import.meta.url))
   const candidates = [
-    // 相对本文件：../../node_modules/@liustack/modlens/dist/main.js
-    join(
-      dirname(fileURLToPath(import.meta.url)),
-      '..',
-      '..',
-      'node_modules',
-      '@liustack',
-      'modlens',
-      'dist',
-      'main.js',
-    ),
+    join(here, '..', 'node_modules', '@liustack', 'modlens', 'dist', 'main.js'),
     // DSH 安装位置
     join(homedir(), '.dsh', 'profiles', 'web', 'node_modules', '@liustack', 'modlens', 'dist', 'main.js'),
   ]
-  return candidates[0]
+  return candidates.find((candidate) => existsSync(candidate)) ?? candidates[0]
 }
 
 /**
